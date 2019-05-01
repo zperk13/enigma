@@ -1,5 +1,5 @@
 import random
-from string import ascii_letters, ascii_lowercase
+from string import ascii_lowercase
 
 rotors = ['dmtwsilruyqnkfejcazbpgxohv', 'hqzgpjtmoblncifdyawveusrkx', 'uqntlszfmrehdpxkibvygjcwoa',
           'jgdqoxuscamifrvtpnewkblzyh', 'ntzpsfbokmwrcjdivlaeyuxhgq', 'jviubhtcdyakeqzposgxnrmwfl',
@@ -16,7 +16,7 @@ def format_string(string):
     string = string.lower()
     result = ''
     for character in string:
-        if character in ascii_letters:
+        if character in ascii_lowercase:
             result += character
     return result
 
