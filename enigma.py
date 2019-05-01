@@ -199,17 +199,3 @@ def generate_random_code():
             result+=number
         return result
     return generate_swap_code() + generate_random_indexes() + generate_random_positions()
-
-if __name__ == '__main__':
-    code = 'tbwrmasihjuocqkfxzdy091914250222'
-    encode = encode_enigma('Hi there!', code)
-    decode = decode_enigma(encode, code)
-    # print(code)
-    print(encode)
-    # print(decode)
-    code = 'tbwrmasihjuocqkfxzdy091914250222'
-    encode = encode_enigma('Hi there!', code)
-    decode = decode_enigma(encode, code)
-    # print(code)
-    print(encode)
-    # print(decode)
