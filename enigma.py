@@ -119,7 +119,9 @@ def tri_rotor(string, rotor1, rotor2, rotor3, rotor1pos, rotor2pos, rotor3pos):
     count = 0
     result = ''
     for letter in string:
-        result += decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(letter, rotor1), rotor2), rotor3), rotor3), rotor2), rotor1)
+        result += decode_rotor_swap(decode_rotor_swap(
+            decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(letter, rotor1), rotor2), rotor3),
+                              rotor3), rotor2), rotor1)
         rotor1 = rotate_rotor(rotor1, 1)
         if count % 26 == 0:
             rotor2 = rotate_rotor(rotor2, 1)
@@ -136,7 +138,9 @@ def decode_tri_rotor(string, rotor1, rotor2, rotor3, rotor1pos, rotor2pos, rotor
     count = 0
     result = ''
     for letter in string:
-        result += rotor_swap(rotor_swap(rotor_swap(rotor_swap(rotor_swap(rotor_swap(letter, rotor1, 1), rotor2, 1), rotor3, 1), rotor3, 1), rotor2, 1), rotor1, 1)
+        result += rotor_swap(rotor_swap(
+            rotor_swap(rotor_swap(rotor_swap(rotor_swap(letter, rotor1, 1), rotor2, 1), rotor3, 1), rotor3, 1), rotor2,
+            1), rotor1, 1)
         rotor1 = rotate_rotor(rotor1, 1)
         if count % 26 == 0:
             rotor2 = rotate_rotor(rotor2, 1)
@@ -196,6 +200,7 @@ def generate_random_code():
             number = str(random.randint(0, 25))
             if len(number) == 1:
                 number = '0' + number
-            result+=number
+            result += number
         return result
+
     return generate_swap_code() + generate_random_indexes() + generate_random_positions()

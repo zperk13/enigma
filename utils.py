@@ -1,5 +1,5 @@
-from urllib.request import urlopen
 import pickle
+
 
 # data = urlopen('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt')
 # words = []
@@ -21,6 +21,3 @@ def split_words(string):
         word_with_spaces = ' ' + word + ' '
         string = string.replace(word, word_with_spaces)
     return string
-
-if __name__ == '__main__':
-    print(split_words('tadathisisadigitalenigmamachine'))
