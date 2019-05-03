@@ -123,6 +123,7 @@ def tri_rotor(string, rotor1, rotor2, rotor3, rotor1pos, rotor2pos, rotor3pos):
             decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(letter, rotor1), rotor2), rotor3),
                               rotor3), rotor2), rotor1)
         rotor1 = rotate_rotor(rotor1, 1)
+        count+=1
         if count % 26 == 0:
             rotor2 = rotate_rotor(rotor2, 1)
         if count % (26 * 26) == 0:
@@ -142,6 +143,7 @@ def decode_tri_rotor(string, rotor1, rotor2, rotor3, rotor1pos, rotor2pos, rotor
             rotor_swap(rotor_swap(rotor_swap(rotor_swap(letter, rotor1, 1), rotor2, 1), rotor3, 1), rotor3, 1), rotor2,
             1), rotor1, 1)
         rotor1 = rotate_rotor(rotor1, 1)
+        count+=1
         if count % 26 == 0:
             rotor2 = rotate_rotor(rotor2, 1)
         if count % (26 * 26) == 0:
