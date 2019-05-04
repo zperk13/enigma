@@ -119,11 +119,11 @@ def tri_rotor(string, rotor1, rotor2, rotor3, rotor1pos, rotor2pos, rotor3pos):
     count = 0
     result = ''
     for letter in string:
+        count+=1
         result += decode_rotor_swap(decode_rotor_swap(
             decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(decode_rotor_swap(letter, rotor1), rotor2), rotor3),
                               rotor3), rotor2), rotor1)
         rotor1 = rotate_rotor(rotor1, 1)
-        count+=1
         if count % 26 == 0:
             rotor2 = rotate_rotor(rotor2, 1)
         if count % (26 * 26) == 0:
@@ -139,11 +139,11 @@ def decode_tri_rotor(string, rotor1, rotor2, rotor3, rotor1pos, rotor2pos, rotor
     count = 0
     result = ''
     for letter in string:
+        count+=1
         result += rotor_swap(rotor_swap(
             rotor_swap(rotor_swap(rotor_swap(rotor_swap(letter, rotor1, 1), rotor2, 1), rotor3, 1), rotor3, 1), rotor2,
             1), rotor1, 1)
         rotor1 = rotate_rotor(rotor1, 1)
-        count+=1
         if count % 26 == 0:
             rotor2 = rotate_rotor(rotor2, 1)
         if count % (26 * 26) == 0:
@@ -151,7 +151,9 @@ def decode_tri_rotor(string, rotor1, rotor2, rotor3, rotor1pos, rotor2pos, rotor
     return result
 
 
-# Code is the 20 letters for plug board (swap_letters) then the 2 digit representation of the index of the each of the 3 rotor codes
+# Code is the 20 letters for plug board (swap_letters)
+# then the 2 digit representation of the index of the each of the 3 rotor codes
+# then the 2 digit representation of the rotation of each rotor
 def encode_enigma(string, code):
     string = swap_letters(string, code[:20])
     rotor1 = int(code[20:22])
